@@ -26,7 +26,7 @@ var work = {
             "title":"Front End Engineer and UI/UX Designer",
             "employer": "Nourish",
             "date": "Jan 2017 - Present",
-            "description": "I volunteered to help a group of Stanford Grads with a website (Nourish) that helps cancer patients find healthy food recipes and connect with doctors. I am their front-end engineer and designer. I'm working with a fellow teammate to program the website using Node Js, Html, Css, and such. I'm also creating the User Interface and User Experience design for the website using Adobe Experience Design."
+            "description": "I volunteered to help a group of Stanford Grads with a website (Nourish) that helps cancer patients find healthy food recipes and connect with doctors. I am their front-end engineer and designer. I'm working with a fellow teammate to program the website using Node Js, Html, Css, and such. I'm also creating the User Interface and User Experience design for the website using Adobe Experience Design.",
         },{
             "title":"Web Developer",
             "employer":"Marine Space Station Project",
@@ -69,12 +69,12 @@ var displayProjects = {
             "title":"Project 1",
             "dates":"Project Dates",
             "description":"Project Description",
-            "images": ["Project Image","Project Image"]
+            "images": ["Project Image","Project Image"],
         }, {
             "title":"Project 2",
             "dates":"Project Dates",
             "description":"Project Description",
-            "images": ["Project Image","Project Image"]
+            "images": ["Project Image","Project Image"],
         }
     ]
 }
@@ -127,10 +127,9 @@ projects.display = function() {
                 $(".project-entry:last").append(formattedImage);
             }
         }
-
-
     }
 }
+
 
 /* banner */
 
@@ -164,6 +163,7 @@ $("#main").append(education.school);
 
 $("#main").append(internationalizeButton);
 
+$("#mapDiv").append(googleMap);
 
 
 $(document).click(function(loc) {
