@@ -105,6 +105,7 @@ a {
   color: #f5ae23;
 }
 
+
 .orange {
   background-color: #f5ae23;
 }
@@ -144,7 +145,7 @@ a {
 
 .flex-column {
   display: flex;
-  flex-direction: column;
+ /* flex-direction: column;*/
   flex-wrap: nowrap;
   padding: 10px;
 }
