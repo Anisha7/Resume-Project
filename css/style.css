@@ -39,7 +39,8 @@ h2 {
   padding: 10px;
 }
 span{
-  color: #999;
+  color: white;
+  font-weight: bolder;
 }
 h3 {
   font-style: italic;
@@ -137,17 +138,25 @@ a {
 .flex-box {
   display: -webkit-flex;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: no wrap;
   justify-content: space-around;
   padding: 10px;
+  float: right;
+  color: white;
+  padding: 20px;
 }
+
+#skills-h3, .flex-column {
+  display: inline-block;
+}
+
 
 .flex-column {
   display: flex;
  /* flex-direction: column;*/
   flex-wrap: nowrap;
-  padding: 10px;
+  padding: 10px;;
 }
 
 .center-content {

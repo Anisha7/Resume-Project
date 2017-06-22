@@ -11,12 +11,13 @@ var bio = {
     "role": "Front-End Developer",
     "contacts": {
         "email": "anishajain@outlook.com",
-        "location": "place",
+        "linkedIn": "   |    https://www.linkedin.com/in/annysha   |",
     },
     "picture": "URL",
     "welcomeMessage": "Hello!",
     "skills": ["HTML", "CSS", "JavaScript", "UI/UX Design"],
 };
+
 
 $(document).ready(function(){
    // $('li').css("background-color", "yellow");
@@ -69,14 +70,14 @@ var education = {
 var projects = {
     "projects": [
         {
-            "title":"Project 1",
-            "dates":"Project Dates",
-            "description":"Project Description",
+            "title":"Nourish Website",
+            "dates":"Jan 2017 - Present",
+            "description":"I volunteered to help a group of Stanford Grads with a website (Nourish) that helps cancer patients find healthy food recipes and connect with doctors. I am their front-end engineer and designer. I'm working with a fellow teammate to program the website using Node Js, Html, Css, and such. I'm also creating the User Interface and User Experience design for the website using Adobe Experience Design. For more info, check http://anishajain.weebly.com/nourish.html .",
             "images": ["Project Image","Project Image"],
         }, {
-            "title":"Project 2",
-            "dates":"Project Dates",
-            "description":"Project Description",
+            "title":"DOUGHNUT: Microsoft Winner",
+            "dates":"June 2016",
+            "description":"My team developed Dough Nut--an app built using Android Studio and Java--will provide young adults the incentive to spend less money, thus save more. With rewards, avatars, and amazing new accessories, young adults would be drawn to this app, as they are to apps such as Plant Nanny. I integrated Artificial Intelligence and Computer Vision Algorithms in this app for text-recognition features, and I created the pitch deck, logos, and art-work.",
             "images": ["Project Image","Project Image"],
         }
     ]
@@ -172,7 +173,7 @@ if (bio.skills.length>0) {
 $("#main").append(bio.name);
 $("#main").append(bio.role);
 $("#topContacts").append(bio.contacts.email);
-$("#topContacts").append(bio.contacts.location);
+$("#topContacts").append(bio.contacts.linkedIn);
 
 
 /* work */
