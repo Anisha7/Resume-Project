@@ -11,14 +11,16 @@ var bio = {
     "role": "Front-End Developer",
     "contacts": {
         "email": "anishajain@outlook.com",
-        "phone": "(510) 999-7688",
+        "location": "place",
     },
     "picture": "URL",
     "welcomeMessage": "Hello!",
     "skills": ["HTML", "CSS", "JavaScript", "UI/UX Design"],
 };
 
-$("bio.skills").css("display", "inline");
+$(document).ready(function(){
+   // $('li').css("background-color", "yellow");
+});
 
 var work = {
     jobs:[
@@ -62,6 +64,24 @@ var education = {
         "city": "Santa Cruz",
     }]
 }
+
+// New Var for testing
+var projects = {
+    "projects": [
+        {
+            "title":"Project 1",
+            "dates":"Project Dates",
+            "description":"Project Description",
+            "images": ["Project Image","Project Image"],
+        }, {
+            "title":"Project 2",
+            "dates":"Project Dates",
+            "description":"Project Description",
+            "images": ["Project Image","Project Image"],
+        }
+    ]
+}
+// Testing ends
 
 var displayProjects = {
     "projects": [
@@ -118,7 +138,7 @@ projects.display = function() {
         var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
         $(".project-entry:last").append(formattedDates);
 
-        var formattedDescription = HTMLprojectDescription("%data%", projects.projects[project].description);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
         $(".project-entry:last").append(formattedDescription);
 
         if (projects.projects[project].images.length > 0) {
@@ -128,9 +148,8 @@ projects.display = function() {
             }
         }
     }
-};
-projects.display();
-
+}
+projects.display()
 
 /* banner */
 
@@ -152,7 +171,8 @@ if (bio.skills.length>0) {
 /* bio */
 $("#main").append(bio.name);
 $("#main").append(bio.role);
-$("#main").append(bio.contacts);
+$("#topContacts").append(bio.contacts.email);
+$("#topContacts").append(bio.contacts.location);
 
 
 /* work */
