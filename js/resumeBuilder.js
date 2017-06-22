@@ -11,14 +11,14 @@ var bio = {
     "role": "Front-End Developer",
     "contacts": {
         "email": "anishajain@outlook.com",
-        "location": "place",
+        "phone": "(510) 999-7688",
     },
     "picture": "URL",
     "welcomeMessage": "Hello!",
     "skills": ["HTML", "CSS", "JavaScript", "UI/UX Design"],
 };
 
-
+$("bio.skills").css("display", "inline");
 
 var work = {
     jobs:[
@@ -128,7 +128,8 @@ projects.display = function() {
             }
         }
     }
-}
+};
+projects.display();
 
 
 /* banner */
