@@ -146,8 +146,8 @@ a {
 .flex-column {
   display: flex;
  /* flex-direction: column;*/
-  flex-wrap: nowrap;
-  padding: 10px;
+  flex-wrap: nowrap;
+  padding: 10px;
 }
 
 .center-content {
