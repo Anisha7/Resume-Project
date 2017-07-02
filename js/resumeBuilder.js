@@ -52,7 +52,7 @@ var work = {
             "description": "My team developed an app to teach young adults how to manage their budget. Key Technologies included Android, Artificial Intelligence, Computer Vision, OCR, Adobe Illustrator, Microsoft Powerpoint. Self-taught JAVA and Android Studio.",
         }
     ]
-}
+};
 
 
 var education = {
@@ -64,7 +64,7 @@ var education = {
         "schoolName": "Pacific Collegiate School",
         "city": "Santa Cruz",
     }]
-}
+};
 
 // New Var for testing
 var projects = {
@@ -81,7 +81,7 @@ var projects = {
             "images": ["Project Image","Project Image"],
         }
     ]
-}
+};
 // Testing ends
 
 var displayProjects = {
@@ -98,10 +98,10 @@ var displayProjects = {
             "images": ["Project Image","Project Image"],
         }
     ]
-}
+};
 /* functions */
 function displayWork() {
-    for (job in work.jobs) {
+    for (var job in work.jobs) {
         $("#workExperience").append(HTMLworkStart);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -130,7 +130,7 @@ function inName(name){
 }
 
 projects.display = function() {
-    for (project in projects.projects) {
+    for (var project in projects.projects) {
         $("#projects").append(HTMLprojectStart);
 
         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -143,14 +143,14 @@ projects.display = function() {
         $(".project-entry:last").append(formattedDescription);
 
         if (projects.projects[project].images.length > 0) {
-            for (image in projects.projects[project].images) {
+            for (var image in projects.projects[project].images) {
                 var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
                 $(".project-entry:last").append(formattedImage);
             }
         }
     }
-}
-projects.display()
+};
+projects.display();
 
 /* banner */
 
@@ -177,8 +177,8 @@ $("#topContacts").append(bio.contacts.linkedIn);
 
 
 /* work */
-$("#main").append(work["position"]);
-$("#main").append(work["company"]);
+$("#main").append(work.position);
+$("#main").append(work.company);
 
 /* education */
 $("#main").append(education.school);
