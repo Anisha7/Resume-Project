@@ -26,6 +26,19 @@ var bio = {
     "skills": ["HTML", "CSS", "JavaScript", "UI/UX Design"],
 };
 
+bio.display = function() {
+$("#header").append(bio.name);
+$("#header").append(bio.pic);
+$("#main").append(bio.role);
+$("#topContacts").append(bio.contacts.email);
+$("#topContacts").append(bio.contacts.linkedIn);
+$("#topContacts").append(bio.contacts.mobile);
+$("#topContacts").append(bio.contacts.location);
+$("#topContacts").append(bio.contacts.github);
+};
+
+bio.display();
+
 bio.skills.forEach(function(skill) {
 if (bio.skills.length>0) {
     $("#header").append(HTMLskillsStart);
@@ -38,17 +51,7 @@ if (bio.skills.length>0) {
     formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
     $("#skills").append(formattedSkill);
 } 
-});
-
-bio.display = function() {
-$("#header").append(bio.name);
-$("#header").append(bio.pic);
-$("#main").append(bio.role);
-$("#topContacts").append(bio.contacts.email);
-$("#topContacts").append(bio.contacts.linkedIn);
-};
-
-bio.display();
+})
 
 var work = {
     jobs:[
