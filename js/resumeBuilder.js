@@ -230,7 +230,7 @@ education.display = function () {
             
     });
 
-}
+};
 
 // New Var for testing
 var projects = {
@@ -306,7 +306,7 @@ projects.display = function () {
                 $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[proj].images[0]));
             }
         }
-    };
+    }
 };
 projects.display();
 
