@@ -289,7 +289,8 @@ var projects = {
 //             });
 //         }
 //     });
-// };
+// }; 
+//Edits made
 
 projects.display = function () {
     'use strict';
