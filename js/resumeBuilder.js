@@ -16,42 +16,68 @@ var bio = {
     "role": "Front-End Developer",
     "contacts": {
         "email": "anishajain@outlook.com",
-        "linkedIn": "   |    https://www.linkedin.com/in/annysha   |",
-        "mobile":"   |   (510) 999-7688   |",
-        "location": "   |   Bay Area   |",
-        "github": "   |   https://github.com/Anisha7   |"
+        "linkedIn": "https://www.linkedin.com/in/annysha",
+        "mobile": "(510) 999-7688",
+        "location": "Bay Area",
+        "githublink": "https://github.com/Anisha7",
+        "github": "Anisha7",
     },
-    "biopic": "http://placehold.it/300x200",
-    "welcomeMessage": "Hello!",
+    "bioPic": "http://placehold.it/300x200",
     "skills": ["HTML", "CSS", "JavaScript", "UI/UX Design"],
 };
 
 bio.display = function() {
-$("#header").append(bio.name);
-$("#header").append(bio.pic);
-$("#main").append(bio.role);
-$("#topContacts").append(bio.contacts.email);
-$("#topContacts").append(bio.contacts.linkedIn);
-$("#topContacts").append(bio.contacts.mobile);
-$("#topContacts").append(bio.contacts.location);
-$("#topContacts").append(bio.contacts.github);
+    'use strict';
+    // var formattedName = HTMLheaderName.replace("%data%", bio.name),
+    //     formattedRole = HTMLheaderRole.replace("%data%", bio.role),
+        var f_photo = HTMLbioPic.replace("%data%", bio.bioPic),
+        github = HTMLgithub.replace("%data%", "<a class=\"contacts-link\" href=\"" + bio.contacts.githublink + "\" target=\"_blank\">" + bio.contacts.github + "</a>"),
+        f_email = HTMLemail.replace("%data%", "<a class=\"contacts-link\" href=\"mailto:" + bio.contacts.email + "\">" + bio.contacts.email + "</a>"),
+        f_location = HTMLlocation.replace("%data%", bio.contacts.location),
+        //f_linkedin = HTMLlinkedin.replace("%data%", "<a class=\"contacts-link\" href=\"" + bio.contacts.linkedin + "\" target=\"_blank\">" + bio.contacts.linkedin + "</a>"),
+        formattedSkill,
+        skill,
+        HTMLContacts;
+
+//display bio
+// $("#header").append(formattedName);
+// $("#header").append(formattedRole);
+
+//contacts
+$("#header").append(f_photo);
+HTMLContacts = '<dl id="topContacts"></dl>';
+$("#header").append(HTMLContacts);
+$("#topContacts").append(f_location);
+$("#topContacts").append(github);
+//$("#topContacts").append(f_linkedin);
+$("#topContacts").append(f_email);
+
+if (bio.skills.length > 0) {
+        $("#topContacts").append(HTMLskillsStart);
+        for (skill in bio.skills) {
+            if (bio.skills.hasOwnProperty(skill)) {
+                formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+                $("#skills").append(formattedSkill);
+            }
+        }
+    }
 };
 
 bio.display();
 
-bio.skills.forEach(function(skill) {
-if (bio.skills.length>0) {
-    $("#header").append(HTMLskillsStart);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
-} 
-})
+// bio.skills.forEach(function(skill) {
+// if (bio.skills.length>0) {
+//     $("#header").append(HTMLskillsStart);
+//     var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+//     $("#skills").append(formattedSkill);
+//     formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+//     $("#skills").append(formattedSkill);
+//     formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+//     $("#skills").append(formattedSkill);
+//     formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+//     $("#skills").append(formattedSkill);
+// } 
+// })
 
 var work = {
     jobs:[
@@ -89,26 +115,46 @@ var work = {
     ]
 };
 
-work.display = function() {
-    work.jobs.forEach(function(job) {
-        $("#workExperience").append(HTMLworkStart);
+// work.display = function() {
+//     work.jobs.forEach(function(job) {
+//         $("#workExperience").append(HTMLworkStart);
 
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+//         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+//         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+//         var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-        $(".work-entry:last").append(formattedEmployerTitle);
+//         $(".work-entry:last").append(formattedEmployerTitle);
 
-        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        $(".work-entry:last").append(formattedDates);
+//         var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+//         $(".work-entry:last").append(formattedDates);
 
-        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        $(".work-entry:last").append(formattedLocation);
+//         var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+//         $(".work-entry:last").append(formattedLocation);
 
-        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-        $(".work-entry:last").append(formattedDescription);
-    });
-}
+//         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+//         $(".work-entry:last").append(formattedDescription);
+//     });
+// }
+
+work.display = function () {
+    'use strict';
+    var i = 0, a;
+    $("#workExperience").append("<div id=\"work-foldable-content\"></div>");
+    for (i = 0; i < work.jobs.length; i++) {
+        //console.log(work.jobs[i].employer);
+        $("#work-foldable-content").append(HTMLworkStart);
+        a = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+        $(".work-entry:last").append(a);
+        a = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+        $(".work-entry:last").append(a);
+        a = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+        $(".work-entry:last").append(a);
+        a = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+        $(".work-entry:last").append(a);
+        a = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+        $(".work-entry:last").append(a);
+    }
+};
 
 work.display();
 
@@ -193,54 +239,73 @@ var projects = {
             "title":"Nourish Website",
             "dates":"Jan 2017 - Present",
             "description":"I volunteered to help a group of Stanford Grads with a website (Nourish) that helps cancer patients find healthy food recipes and connect with doctors. I am their front-end engineer and designer. I'm working with a fellow teammate to program the website using Node Js, Html, Css, and such. I'm also creating the User Interface and User Experience design for the website using Adobe Experience Design. For more info, check http://anishajain.weebly.com/nourish.html .",
-            "images": ["Project Image","Project Image"],
+            "images": ["http://placehold.it/300x200"],
+            "link": "wwww.placehold.it",
         }, {
             "title":"DOUGHNUT: Microsoft Winner",
             "dates":"June 2016",
             "description":"My team developed Dough Nut--an app built using Android Studio and Java--will provide young adults the incentive to spend less money, thus save more. With rewards, avatars, and amazing new accessories, young adults would be drawn to this app, as they are to apps such as Plant Nanny. I integrated Artificial Intelligence and Computer Vision Algorithms in this app for text-recognition features, and I created the pitch deck, logos, and art-work.",
-            "images": ["Project Image","Project Image"],
+            "images": ["http://placehold.it/300x200"],
+            "link": "www.placehold.it",
         }
     ]
 };
 // Testing ends
 
-var displayProjects = {
-    "projects": [
-        {
-            "title":"Project 1",
-            "dates":"Project Dates",
-            "description":"Project Description",
-            "images": ["Project Image","Project Image"],
-        }, {
-            "title":"Project 2",
-            "dates":"Project Dates",
-            "description":"Project Description",
-            "images": ["Project Image","Project Image"],
+// var displayProjects = {
+//     "projects": [
+//         {
+//             "title":"Project 1",
+//             "dates":"Project Dates",
+//             "description":"Project Description",
+//             "images": ["Project Image","Project Image"],
+//         }, {
+//             "title":"Project 2",
+//             "dates":"Project Dates",
+//             "description":"Project Description",
+//             "images": ["Project Image","Project Image"],
+//         }
+//     ]
+// };
+
+// projects.display = function() {
+//     projects.projects.forEach(function(project) {
+//         $("#projects").append(HTMLprojectStart);
+
+//         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+//         $(".project-entry:last").append(formattedTitle);
+
+//         var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+//         $(".project-entry:last").append(formattedDates);
+
+//         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+//         $(".project-entry:last").append(formattedDescription);
+
+//         if (projects.projects[project].images.length > 0) {
+//             for (var image in projects.projects[project].images) 
+//             projects.projects[project].images.forEach(function(image) {
+//                 var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
+//                 $(".project-entry:last").append(formattedImage);
+//             });
+//         }
+//     });
+// };
+
+projects.display = function () {
+    'use strict';
+    var proj;
+    $("#projects").append("<div id=\"projects-foldable-content\"></div>");
+    for (proj in projects.projects){
+        if (projects.projects.hasOwnProperty(proj)) {
+            $("#projects-foldable-content").append(HTMLprojectStart);
+            $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", "<a href=\""+ projects.projects[proj].link + "\" target=\"_bkank\">" + projects.projects[proj].title + "</a>"));
+            $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[proj].dates));
+            $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[proj].description));
+            if (projects.projects[proj].images.length > 0) {
+                $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[proj].images[0]));
+            }
         }
-    ]
-};
-
-projects.display = function() {
-    projects.projects.forEach(function(project) {
-        $("#projects").append(HTMLprojectStart);
-
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        $(".project-entry:last").append(formattedTitle);
-
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        $(".project-entry:last").append(formattedDates);
-
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        $(".project-entry:last").append(formattedDescription);
-
-        if (projects.projects[project].images.length > 0) {
-            for (var image in projects.projects[project].images) 
-            projects.projects[project].images.forEach(function(image) {
-                var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-                $(".project-entry:last").append(formattedImage);
-            });
-        }
-    });
+    };
 };
 projects.display();
 
