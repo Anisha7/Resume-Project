@@ -4,11 +4,6 @@ This is empty on purpose! Your code to build the resume will go here.
 
 
 
-var formattedName = HTMLheaderName.replace("%data%", "Anisha Jain");
-var formattedRole = HTMLheaderRole.replace("%data%", "Front-End Developer");
-
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedRole);
 
 
 var bio = {
@@ -22,7 +17,7 @@ var bio = {
         "githublink": "https://github.com/Anisha7",
         "github": "Anisha7",
     },
-    "bioPic": "http://placehold.it/300x200",
+    "biopic": "http://placehold.it/300x200",
     "skills": ["HTML", "CSS", "JavaScript", "UI/UX Design"],
 };
 
@@ -30,7 +25,7 @@ bio.display = function() {
     'use strict';
     // var formattedName = HTMLheaderName.replace("%data%", bio.name),
     //     formattedRole = HTMLheaderRole.replace("%data%", bio.role),
-        var f_photo = HTMLbioPic.replace("%data%", bio.bioPic),
+        var f_photo = HTMLbioPic.replace("%data%", bio.biopic),
         github = HTMLgithub.replace("%data%", "<a class=\"contacts-link\" href=\"" + bio.contacts.githublink + "\" target=\"_blank\">" + bio.contacts.github + "</a>"),
         f_email = HTMLemail.replace("%data%", "<a class=\"contacts-link\" href=\"mailto:" + bio.contacts.email + "\">" + bio.contacts.email + "</a>"),
         f_location = HTMLlocation.replace("%data%", bio.contacts.location),
@@ -47,11 +42,21 @@ bio.display = function() {
 $("#header").append(f_photo);
 HTMLContacts = '<dl id="topContacts"></dl>';
 $("#header").append(HTMLContacts);
-$("#topContacts").append(f_location);
-$("#topContacts").append(github);
+$("#topContacts, #footerContacts").append(f_location);
+$("#topContacts, #footerContacts").append(github);
 //$("#topContacts").append(f_linkedin);
-$("#topContacts").append(f_email);
+$("#topContacts, #footerContacts").append(f_email);
 
+var formattedName = HTMLheaderName.replace("%data%", "Anisha Jain");
+var formattedRole = HTMLheaderRole.replace("%data%", "Front-End Developer");
+
+$("#header").prepend(formattedName);
+$("#header").prepend(formattedRole);
+
+
+
+
+bio.display() = function() {
 if (bio.skills.length > 0) {
         $("#topContacts").append(HTMLskillsStart);
         for (skill in bio.skills) {
@@ -62,8 +67,7 @@ if (bio.skills.length > 0) {
         }
     }
 };
-
-bio.display();
+}
 
 // bio.skills.forEach(function(skill) {
 // if (bio.skills.length>0) {
@@ -164,14 +168,14 @@ var education = {
        "name": "Academy of Art University",
        "location": "San Francisco",
        "degree": "Pre-Collegiate",
-       "majors": "Not Applicable",
+       "majors": ["Not Applicable"],
        "dates": "June 2016 - June 2017",
        "url": "https://www.academyart.edu/",
     }, {
         "name": "Pacific Collegiate School",
         "location": "Santa Cruz",
         "degree": "High School Diploma",
-        "majors": "Not Applicanble",
+        "majors": ["Not Applicanble"],
         "dates" : "Aug 2015 - June 2017",
         "url" : "https://www.pacificcollegiate.com/",
     }],
@@ -194,7 +198,7 @@ var education = {
 
 education.display = function () {
     education.schools.forEach(function(school){
-        $("#education").append(HTMLskillsStart);
+        $("#education").append(HTMLeducationStart);
 
             var formattedName = HTMLeducationName.replace("%data%", education.schools[school].name);
              $(".project-entry:last").append(formattedName);
@@ -231,7 +235,7 @@ education.display = function () {
     });
 
 };
-
+//education.display();
 // New Var for testing
 var projects = {
     "projects": [
