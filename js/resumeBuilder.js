@@ -53,10 +53,6 @@ var formattedRole = HTMLheaderRole.replace("%data%", "Front-End Developer");
 $("#header").prepend(formattedName);
 $("#header").prepend(formattedRole);
 
-
-
-
-bio.display() = function() {
 if (bio.skills.length > 0) {
         $("#topContacts").append(HTMLskillsStart);
         for (skill in bio.skills) {
@@ -67,7 +63,9 @@ if (bio.skills.length > 0) {
         }
     }
 };
-}
+
+
+bio.display();
 
 // bio.skills.forEach(function(skill) {
 // if (bio.skills.length>0) {
@@ -235,7 +233,7 @@ education.display = function () {
     });
 
 };
-//education.display();
+education.display();
 // New Var for testing
 var projects = {
     "projects": [
