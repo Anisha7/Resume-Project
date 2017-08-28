@@ -219,18 +219,18 @@ education.display = function () {
             //$(".project-entry:last").append(formattedUrl);
     });
     $("#education").append(HTMLonlineClasses);
-    education.onlineCourses.forEach(function(school){
+    education.onlineCourses.forEach(function(onlineCourse){
         
-            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+            var formattedTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
             $(".education-entry:last").append(formattedTitle);
 
-            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
             $(".education-entry:last").append(formattedSchool);
 
-            var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+            var formattedDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
             $(".education-entry:last").append(formattedDates);
 
-            var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+            var formattedUrl = HTMLonlineURL.replace("%data%", onlineCourse.url);
             $(".education-entry:last").append(formattedUrl);
             
     });
