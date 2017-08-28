@@ -40,7 +40,7 @@ bio.display = function() {
 
 //contacts
 $("#header").append(f_photo);
-HTMLContacts = '<dl id="topContacts"></dl>';
+HTMLContacts = '<dl id="Contacts"></dl>';
 $("#header").append(HTMLContacts);
 $("#topContacts, #footerContacts").append(f_location);
 $("#topContacts, #footerContacts").append(github);
