@@ -221,6 +221,8 @@ education.display = function () {
     $("#education").append(HTMLonlineClasses);
     education.onlineCourses.forEach(function(onlineCourse){
         
+        $("#education").append(HTMLschoolStart);
+
             var formattedTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
             $(".education-entry:last").append(formattedTitle);
 
