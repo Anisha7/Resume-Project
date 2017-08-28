@@ -195,39 +195,42 @@ var education = {
 };
 
 education.display = function () {
+    var i=0;
     education.schools.forEach(function(school){
-        $("#education").append(HTMLeducationStart);
+    //for(var i = 0; i < education.schools.length; i++){
+        $("#education").append(HTMLschoolStart);
 
-            var formattedName = HTMLeducationName.replace("%data%", education.schools[school].name);
+            var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
              $(".project-entry:last").append(formattedName);
 
-            var formattedLocation = HTMLeducationLocation.replace("%data%", education.schools[school].location);
+            var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
             $(".project-entry:last").append(formattedLocation);
 
-            var formattedDegree = HTMLeducationDegree.replace("%data%", education.schools[school].degree);
+            var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
             $(".project-entry:last").append(formattedDegree);
 
-            var formattedMajors = HTMLeducationMajors.replace("%data%", education.schools[school].majors);
+            var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
             $(".project-entry:last").append(formattedMajors);
 
-            var formattedDates = HTMLeducationDates.replace("%data%", education.schools[school].dates);
+            var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
             $(".project-entry:last").append(formattedDates);
 
-            var formattedUrl = HTMLeducationUrl.replace("%data%", education.schools[school].url);
-            $(".project-entry:last").append(formattedUrl);
-    }),
+           // var formattedUrl = HTMLschoolUrl.replace("%data%", education.schools[i].url);
+            //$(".project-entry:last").append(formattedUrl);
+    });
     education.onlineCourses.forEach(function(school){
-        $("#education").append(HTMLskillsStart);
-            var formattedTitle = HTMLeducationTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
+        $("#education").append(HTMLonlineClasses);
+        
+            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
             $(".project-entry:last").append(formattedTitle);
 
-            var formattedSchool = HTMLeducationSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
             $(".project-entry:last").append(formattedSchool);
 
-            var formattedDates = HTMLeducationDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
+            var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
             $(".project-entry:last").append(formattedDates);
 
-            var formattedUrl = HTMLeducationUrl.replace("%data%", education.onlineCourses[onlineCourse].url);
+            var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
             $(".project-entry:last").append(formattedUrl);
             
     });
@@ -304,8 +307,10 @@ projects.display = function () {
             $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", "<a href=\""+ projects.projects[proj].link + "\" target=\"_bkank\">" + projects.projects[proj].title + "</a>"));
             $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[proj].dates));
             $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[proj].description));
-            if (projects.projects[proj].images.length > 0) {
-                $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[proj].images[0]));
+            for (var j = 0; j < projects.projects[proj].images.length; j++) {
+                 if (projects.projects[proj].images.length > 0) {
+                     $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[proj].images[0]));
+                }
             }
         }
     }
