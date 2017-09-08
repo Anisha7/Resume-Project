@@ -41,6 +41,7 @@ bio.display = function() {
 
     if (bio.skills.length > 0) {
         $("#topContacts").append(HTMLskillsStart);
+        //topContacts should be header??
         bio.skills.forEach(function(skill){
         //for (skill in bio.skills) {
             if (bio.skills.hasOwnProperty(skill)) {
@@ -205,6 +206,10 @@ var projects = {
 };
 
 //Edits made
+//1) forEach was not working on bio.skills(CHECK OUT SYNTAX FOR FORRACH FOR MORE) so i created a new array (var arr = [];) and applied forEach on that.
+//2)No need for this if conndition ( if (bio.skills.hasOwnProperty(skill)) {} ) you are iterating over an array... it will iterate only if skill exists. so remove that!!
+//Image 
+//3) In this line of code!! replace bio.skills[skill] by skill because you iterating over an array and skill is the element in that array!
 
 projects.display = function() {
     'use strict';
@@ -252,3 +257,4 @@ $(document).click(function(loc) {
 
     logClicks(x, y);
 });
+
