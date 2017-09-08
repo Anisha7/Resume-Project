@@ -44,12 +44,12 @@ bio.display = function() {
         //topContacts should be header??
         bio.skills.forEach(function(skill){
         //for (skill in bio.skills) {
-            if (bio.skills.hasOwnProperty(skill)) {
-                formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-                $("#skills").append(formattedSkill);
-            }
-        }
-    );
+            //if (bio.skills.hasOwnProperty(skill)) {
+        formattedSkill = HTMLskills.replace("%data%", skill);
+        $("#skills").append(formattedSkill);
+            });
+        
+    
     }
 };
 
@@ -91,7 +91,7 @@ var work = {
 };
 
 work.display = function() {
-    'use strict';
+    //'use strict';
     var i = 0,
         a;
     $("#workExperience").append("<div id=\"work-foldable-content\"></div>");
@@ -207,12 +207,12 @@ var projects = {
 
 //Edits made
 //1) forEach was not working on bio.skills(CHECK OUT SYNTAX FOR FORRACH FOR MORE) so i created a new array (var arr = [];) and applied forEach on that.
-//2)No need for this if conndition ( if (bio.skills.hasOwnProperty(skill)) {} ) you are iterating over an array... it will iterate only if skill exists. so remove that!!
+//2)No need for this if condition ( if (bio.skills.hasOwnProperty(skill)) {} ) you are iterating over an array... it will iterate only if skill exists. so remove that!!
 //Image 
 //3) In this line of code!! replace bio.skills[skill] by skill because you iterating over an array and skill is the element in that array!
 
 projects.display = function() {
-    'use strict';
+    //'use strict';
     var proj;
     $("#projects").append("<div id=\"projects-foldable-content\"></div>");
     for (proj in projects.projects) {
